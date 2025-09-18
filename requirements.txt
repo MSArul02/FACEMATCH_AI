@@ -1,0 +1,5 @@
+flask
+facenet-pytorch
+torch
+numpy
+pillow

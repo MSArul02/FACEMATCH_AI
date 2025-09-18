@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FaceMatch AI</title>
+
+  <link rel="stylesheet" href="static/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+<div class="glass-card">
+  <h1>🧠 FaceMatch AI</h1>
+  <p class="subtitle">Upload or capture a face to find matches</p>
+
+  <div class="upload-section" ondrop="handleDrop(event)" ondragover="handleDragOver(event)">
+    <input type="file" id="imageInput" accept="image/*" hidden />
+    <button onclick="document.getElementById('imageInput').click()">📁 Browse File</button>
+    <button onclick="uploadImage()">🚀 Upload & Match</button>
+    <p style="opacity: 0.8; font-size: 0.9em;">Drag & drop an image here</p>
+  </div>
+
+  <video id="cameraStream" autoplay playsinline></video>
+  <div>
+    <button onclick="openCamera()">🎥 Use Camera</button>
+    <button onclick="capturePhoto()">📸 Capture Photo</button>
+  </div>
+
+  <div id="queryImagePreview" class="image-preview"></div>
+
+  <div class="search-bar">
+    <input type="text" id="searchLabel" placeholder="Search by label" />
+    <button onclick="applySearch()">🔍</button>
+  </div>
+
+  <div id="status" class="status-text"></div>
+
+  <div id="results" class="grid"></div>
+</div>
+
+<!-- Image Modal -->
+<div id="imageModal" class="modal">
+  <span class="close" onclick="closeImageModal()">&times;</span>
+  <img id="modalImage" class="modal-content" />
+  <a id="downloadBtn" class="download-btn" download>⬇ Download</a>
+</div>
+
+<script src="static/main.js"></script>
+</body>
+</html>
